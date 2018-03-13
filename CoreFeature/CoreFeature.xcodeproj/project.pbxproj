@@ -16,6 +16,9 @@
 		400B84C32056A2F900F56829 /* CoreFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84C22056A2F900F56829 /* CoreFeatureTests.swift */; };
 		400B84CE2056A2F900F56829 /* CoreFeatureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84CD2056A2F900F56829 /* CoreFeatureUITests.swift */; };
 		400B84DC2056A68900F56829 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84DB2056A68900F56829 /* Feature.swift */; };
+		400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400B84DE2058065300F56829 /* StoryboardMap.storyboard */; };
+		400B84E12058067B00F56829 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E02058067B00F56829 /* MapViewController.swift */; };
+		400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		400B84CD2056A2F900F56829 /* CoreFeatureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreFeatureUITests.swift; sourceTree = "<group>"; };
 		400B84CF2056A2F900F56829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		400B84DB2056A68900F56829 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		400B84DE2058065300F56829 /* StoryboardMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardMap.storyboard; sourceTree = "<group>"; };
+		400B84E02058067B00F56829 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		400B84A92056A2F900F56829 /* CoreFeature */ = {
 			isa = PBXGroup;
 			children = (
+				400B84DD2058060900F56829 /* MapFeatures */,
 				400B84AA2056A2F900F56829 /* AppDelegate.swift */,
 				400B84AC2056A2F900F56829 /* ViewController.swift */,
 				400B84AE2056A2F900F56829 /* Main.storyboard */,
@@ -129,6 +136,16 @@
 				400B84CF2056A2F900F56829 /* Info.plist */,
 			);
 			path = CoreFeatureUITests;
+			sourceTree = "<group>";
+		};
+		400B84DD2058060900F56829 /* MapFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				400B84DE2058065300F56829 /* StoryboardMap.storyboard */,
+				400B84E02058067B00F56829 /* MapViewController.swift */,
+				400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */,
+			);
+			path = MapFeatures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +257,7 @@
 			files = (
 				400B84B82056A2F900F56829 /* LaunchScreen.storyboard in Resources */,
 				400B84B52056A2F900F56829 /* Assets.xcassets in Resources */,
+				400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */,
 				400B84B02056A2F900F56829 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,8 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				400B84DC2056A68900F56829 /* Feature.swift in Sources */,
+				400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */,
 				400B84B32056A2F900F56829 /* CoreFeature.xcdatamodeld in Sources */,
 				400B84AD2056A2F900F56829 /* ViewController.swift in Sources */,
+				400B84E12058067B00F56829 /* MapViewController.swift in Sources */,
 				400B84AB2056A2F900F56829 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

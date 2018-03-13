@@ -38,5 +38,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item == 0 {
+            let storyboard = UIStoryboard(name: "StoryboardMap", bundle: nil)
+            let mapVC:MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController_ID") as! MapViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+            
+        }
+    }
+    
     
 }
