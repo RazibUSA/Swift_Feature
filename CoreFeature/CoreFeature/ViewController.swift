@@ -12,7 +12,8 @@ class ViewController: UIViewController{
     
     var list:[Feature] = [
         Feature(title: "Social Media", description: "Login with FB, Twitter & Google"),
-        Feature(title: "Mapkit", description: "Test Map from google")
+        Feature(title: "Mapkit", description: "Test Map from google"),
+        Feature(title: "Photo Lib", description: "Test photo album")
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -39,12 +40,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.item == 0 {
+        if indexPath.item == 1 {
             let storyboard = UIStoryboard(name: "StoryboardMap", bundle: nil)
             let mapVC:MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController_ID") as! MapViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
             
+        } else if indexPath.item == 2 {
+            let storyboard = UIStoryboard(name: "Storyboard_PH", bundle: nil)
+            let mapVC:AlbumsViewController = storyboard.instantiateViewController(withIdentifier: "AlbumsViewController_ID") as! AlbumsViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
         }
     }
     

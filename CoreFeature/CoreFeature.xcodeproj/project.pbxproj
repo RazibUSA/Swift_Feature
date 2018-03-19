@@ -20,6 +20,10 @@
 		400B84E12058067B00F56829 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E02058067B00F56829 /* MapViewController.swift */; };
 		400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */; };
 		400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E5205AC7F800F56829 /* ProgressView.swift */; };
+		405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405937A42060375500221ED9 /* Storyboard_PH.storyboard */; };
+		405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405937A62060384400221ED9 /* AlbumsViewController.swift */; };
+		40DCDF4F205C545A0039520A /* Storyboard_test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */; };
+		40DCDF51205C549C0039520A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCDF50205C549C0039520A /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		400B84E02058067B00F56829 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerModel.swift; sourceTree = "<group>"; };
 		400B84E5205AC7F800F56829 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		405937A42060375500221ED9 /* Storyboard_PH.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_PH.storyboard; sourceTree = "<group>"; };
+		405937A62060384400221ED9 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_test.storyboard; sourceTree = "<group>"; };
+		40DCDF50205C549C0039520A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,8 @@
 		400B84A92056A2F900F56829 /* CoreFeature */ = {
 			isa = PBXGroup;
 			children = (
+				405937A32060373000221ED9 /* PhotoFrame */,
+				40DCDF4D205C543E0039520A /* tests */,
 				400B84E4205AC7DC00F56829 /* Utils */,
 				400B84DD2058060900F56829 /* MapFeatures */,
 				400B84AA2056A2F900F56829 /* AppDelegate.swift */,
@@ -157,6 +167,24 @@
 				400B84E5205AC7F800F56829 /* ProgressView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		405937A32060373000221ED9 /* PhotoFrame */ = {
+			isa = PBXGroup;
+			children = (
+				405937A42060375500221ED9 /* Storyboard_PH.storyboard */,
+				405937A62060384400221ED9 /* AlbumsViewController.swift */,
+			);
+			path = PhotoFrame;
+			sourceTree = "<group>";
+		};
+		40DCDF4D205C543E0039520A /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */,
+				40DCDF50205C549C0039520A /* TestViewController.swift */,
+			);
+			path = tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +294,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DCDF4F205C545A0039520A /* Storyboard_test.storyboard in Resources */,
+				405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */,
 				400B84B82056A2F900F56829 /* LaunchScreen.storyboard in Resources */,
 				400B84B52056A2F900F56829 /* Assets.xcassets in Resources */,
 				400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */,
@@ -296,6 +326,8 @@
 			files = (
 				400B84DC2056A68900F56829 /* Feature.swift in Sources */,
 				400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */,
+				405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */,
+				40DCDF51205C549C0039520A /* TestViewController.swift in Sources */,
 				400B84B32056A2F900F56829 /* CoreFeature.xcdatamodeld in Sources */,
 				400B84AD2056A2F900F56829 /* ViewController.swift in Sources */,
 				400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */,
