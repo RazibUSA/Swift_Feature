@@ -18,7 +18,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView?.showsUserLocation = true
-        
+        mapView.delegate = self as? MKMapViewDelegate
        // mapView.mapType = .hybrid
       //mapView.setUserTrackingMode(.follow, animated: true)
         mapView.showsCompass = true
@@ -113,7 +113,7 @@ extension ViewController: MKMapViewDelegate {
     // 1 gets called for every annotation you add to the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        print(annotation.title.debugDescription)
+        print("mapView called:", annotation.title.debugDescription)
         
         if annotation is MKUserLocation {
             let pin = mapView.view(for: annotation) as? MKPinAnnotationView ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
