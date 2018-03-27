@@ -17,27 +17,7 @@ class JsonTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            let docUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
-            let desURL = docUrl.appendingPathComponent("song.m4a")
-            
-//             songPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "tailtoddle_lo4", ofType: "mp3")!))
-songPlayer = try AVAudioPlayer(contentsOf: desURL)
-            songPlayer.prepareToPlay()
-//            let audioSession = AVAudioSession.sharedInstance()
-//            do {
-//                //10 - Set our session category to playback music
-//                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-//                //11 -
-//            } catch let sessionError {
-//
-//                print(sessionError)
-//            }
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-      //  loadM4a()
+      makePostCall()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +43,37 @@ songPlayer = try AVAudioPlayer(contentsOf: desURL)
         player.play()
         
     }
+    
+    func makePostCall() {
+        let todosEndpoint: String = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml?c9911b4d481e6ada019ba2d93f6cf780"
+        guard let todosURL = URL(string: todosEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        var todosUrlRequest = URLRequest(url: todosURL)
+        todosUrlRequest.httpMethod = "GET"
+        
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: todosUrlRequest) {
+            (data, response, error) in
+            guard error == nil else {
+                print("error calling POST on /todos/1")
+                print(error!)
+                return
+            }
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            
+            print(data)
+        }
+        task.resume()
+    }
+    
+    
     
     func loadM4a(){
         if let audioUrl = URL(string: "http://soundexpert.org/documents/10179/13123/se_ref4warp_FULL_08.m4a") {
@@ -188,5 +199,11 @@ songPlayer = try AVAudioPlayer(contentsOf: desURL)
 //        .appendingPathExtension("m4a")
 //    print(renameURL)
     
+    
+}
+
+
+
+extension JsonTestViewController : XMLParserDelegate {
     
 }

@@ -15,7 +15,8 @@ class ViewController: UIViewController{
     var list:[Feature] = [
         Feature(title: "Social Media", description: "Login with FB, Twitter & Google"),
         Feature(title: "Mapkit", description: "Test Map from google"),
-        Feature(title: "Json Test", description: "Json model testing")
+        Feature(title: "Json Test", description: "Json model testing"),
+        Feature(title: "Photo Lib", description: "Test photo album")
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -113,12 +114,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(naviController, animated: true, completion: nil)
             
         } else if indexPath.item == 2 {
+
                 let storyboard = UIStoryboard(name: "Storyboard_json", bundle: nil)
                 let mapVC:JsonTestViewController = storyboard.instantiateViewController(withIdentifier: "JsonTestViewController_ID") as! JsonTestViewController
                 let naviController = UINavigationController(rootViewController: mapVC)
                 self.present(naviController, animated: true, completion: nil)
                 
-            
+        }else if indexPath.item == 3 {
+
+            let storyboard = UIStoryboard(name: "Storyboard_PH", bundle: nil)
+            let mapVC:AlbumsViewController = storyboard.instantiateViewController(withIdentifier: "AlbumsViewController_ID") as! AlbumsViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+
         }
     }
     

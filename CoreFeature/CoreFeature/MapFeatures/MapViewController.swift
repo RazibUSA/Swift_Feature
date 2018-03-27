@@ -3,7 +3,6 @@
 //  CoreFeature
 //
 //  Created by Mollick, Md Razib Uddin on 3/13/18.
-//  Copyright © 2018 Ashley Furniture. All rights reserved.
 //
 
 import UIKit
@@ -27,14 +26,8 @@ class MapViewController: UIViewController {
         setupUserTrackingButtonAndScaleView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func setupUserTrackingButtonAndScaleView() {
         mapView.showsUserLocation = true
-        
         if #available(iOS 11.0, *) {
             let button = MKUserTrackingButton(mapView: mapView)
             button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
@@ -43,12 +36,27 @@ class MapViewController: UIViewController {
             button.layer.cornerRadius = 5
             button.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(button)
+
         } else {
             // Fallback on earlier versions
         }
         
         
 //        if #available(iOS 11.0, *) {
+//            let scale = MKScaleView(mapView: mapView)
+//            scale.legendAlignment = .trailing
+//            scale.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview(scale)
+//
+//            NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+//                                         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//                                         scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+//                                         scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//
+            
 //            let scale = MKScaleView(mapView: mapView)
 //            scale.legendAlignment = .trailing
 //            scale.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +81,7 @@ class MapViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-    
+
     }
 
     func initLocationParam(){
@@ -91,29 +99,28 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
+             ProgressView.shared.showProgressView(self.view)
             locationManager.requestLocation()
         }
     }
     
-    //This gets called when location information comes back. You get an array of locations, but you’re only interested in the first item. You don’t do anything with it yet, but eventually you will zoom to this location.
+    //This gets called when location information comes back. You get an array of locations.
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("location:: (location)")
 //            let span = MKCoordinateSpanMake(0.05, 0.05)
 //            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            let radius:CLLocationDistance = 1000
+            let radius:CLLocationDistance = 10000
             let region = MKCoordinateRegionMakeWithDistance(location.coordinate, radius, radius)
-            
             mapView.setRegion(region, animated: true)
             
-            let newMarker = PlaceMarkerModel(title: "Time Squar",
-                                  locationName: "Time Squar",
-                                  discipline: "Sculpture",
-                                  coordinate: CLLocationCoordinate2D(latitude: 40.758899, longitude: -73.987325))
-            mapView.addAnnotation(newMarker)
             
-         
+            let src2D:CLLocationCoordinate2D = location.coordinate
+            let des2D:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 25.7825453, longitude: -80.2994987)
+            
+            showRouteOnMap(pickupCoordinate: src2D, destinationCoordinate: des2D)
+            ProgressView.shared.hideProgressView()
         }
     }
     
@@ -124,7 +131,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
-extension ViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     // 1 gets called for every annotation you add to the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -153,26 +160,130 @@ extension ViewController: MKMapViewDelegate {
 //                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
 //            }
         
+
+        if annotation is MKUserLocation {
+            if #available(iOS 11.0, *) {
+                let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+                pin.image = UIImage(named: "car_top")
+                return pin
+            } else {
+                let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+                pin.image = UIImage(named: "car_top")
+                return pin
+            }
             
+           
             
-            return nil //view
-    
+        } else if let homeAnnotation = annotation as? PlaceMarkerModel {
+            if #available(iOS 11.0, *) {
+                let pin = mapView.view(for: homeAnnotation) ?? MKAnnotationView(annotation: homeAnnotation, reuseIdentifier: nil)
+                pin.image = UIImage(named: "home_top")
+                pin.canShowCallout = true
+                return pin
+//                let identifier = "marker"
+//                var view: MKMarkerAnnotationView
+//                if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//                    as? MKMarkerAnnotationView {
+//                    dequeuedView.annotation = homeAnnotation
+//                    view = dequeuedView
+//                    view.image = UIImage(named: "home_top")
+//                } else {
+//                    view = MKMarkerAnnotationView(annotation: homeAnnotation, reuseIdentifier: identifier)
+//                    view.image = UIImage(named: "home_top")
+//                    view.canShowCallout = true
+//                    view.calloutOffset = CGPoint(x: -5, y: 5)
+//                    view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//                }
+            } else {
+                let pin = mapView.view(for: homeAnnotation) ?? MKAnnotationView(annotation: homeAnnotation, reuseIdentifier: nil)
+                pin.image = UIImage(named: "home_top")
+                pin.canShowCallout = true
+                return pin
+            }
         }
-      
         
+        return nil
         
-//        let identifier = "User"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//        if annotationView == nil{
-//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView?.canShowCallout = true
-//        } else {
-//            annotationView?.annotation = annotation
-//        }
-//        annotationView?.image = UIImage(named: "car_top")
-//        return annotationView
-        // 2
     }
+    
+    func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
+        
+        let sourcePlacemark = MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+    
+        //Default marker
+        
+//      let sourceAnnotation = MKPointAnnotation()
+        
+//        if let location = sourcePlacemark.location {
+//            sourceAnnotation.coordinate = location.coordinate
+//        }
+        
+//        let destinationAnnotation = MKPointAnnotation()
+//
+//        if let location = destinationPlacemark.location {
+//            destinationAnnotation.coordinate = location.coordinate
+//        }
+        
+        // Custom marker
+        let newMarker = PlaceMarkerModel(title: "My Home",
+                                         locationName: "Address:",
+                                        discipline: "Home",
+                                        coordinate: destinationCoordinate)
+        
+        self.mapView.showAnnotations([newMarker], animated: true )
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+            let route = response.routes[0]
+
+            
+            self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
+        
+    
+
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+
+        }
+    }
+    
+    // MARK: - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        
+        renderer.strokeColor = UIColor(red: 17.0/255.0, green: 147.0/255.0, blue: 255.0/255.0, alpha: 1)
+        
+        renderer.lineWidth = 5.0
+        
+        return renderer
+    }
+
+    
+    
+}
 
 
 

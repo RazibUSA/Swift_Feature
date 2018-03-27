@@ -25,6 +25,11 @@
 		400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400B84DE2058065300F56829 /* StoryboardMap.storyboard */; };
 		400B84E12058067B00F56829 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E02058067B00F56829 /* MapViewController.swift */; };
 		400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */; };
+		400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E5205AC7F800F56829 /* ProgressView.swift */; };
+		405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405937A42060375500221ED9 /* Storyboard_PH.storyboard */; };
+		405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405937A62060384400221ED9 /* AlbumsViewController.swift */; };
+		40DCDF4F205C545A0039520A /* Storyboard_test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */; };
+		40DCDF51205C549C0039520A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCDF50205C549C0039520A /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		400B84DE2058065300F56829 /* StoryboardMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardMap.storyboard; sourceTree = "<group>"; };
 		400B84E02058067B00F56829 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerModel.swift; sourceTree = "<group>"; };
+		400B84E5205AC7F800F56829 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		405937A42060375500221ED9 /* Storyboard_PH.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_PH.storyboard; sourceTree = "<group>"; };
+		405937A62060384400221ED9 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_test.storyboard; sourceTree = "<group>"; };
+		40DCDF50205C549C0039520A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,9 @@
 				1B304CCF2062966000D8DD4B /* PurpleRain.m4a */,
 				1B304CCD2061C2F400D8DD4B /* tailtoddle_lo4.mp3 */,
 				1B9FD6CE205DB9A300BD0923 /* JsonTest */,
+				405937A32060373000221ED9 /* PhotoFrame */,
+				40DCDF4D205C543E0039520A /* tests */,
+				400B84E4205AC7DC00F56829 /* Utils */,
 				400B84DD2058060900F56829 /* MapFeatures */,
 				400B84AA2056A2F900F56829 /* AppDelegate.swift */,
 				400B84AC2056A2F900F56829 /* ViewController.swift */,
@@ -172,6 +185,32 @@
 				400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */,
 			);
 			path = MapFeatures;
+			sourceTree = "<group>";
+		};
+		400B84E4205AC7DC00F56829 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				400B84E5205AC7F800F56829 /* ProgressView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		405937A32060373000221ED9 /* PhotoFrame */ = {
+			isa = PBXGroup;
+			children = (
+				405937A42060375500221ED9 /* Storyboard_PH.storyboard */,
+				405937A62060384400221ED9 /* AlbumsViewController.swift */,
+			);
+			path = PhotoFrame;
+			sourceTree = "<group>";
+		};
+		40DCDF4D205C543E0039520A /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */,
+				40DCDF50205C549C0039520A /* TestViewController.swift */,
+			);
+			path = tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +321,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B304CD0206296B600D8DD4B /* PurpleRain.m4a in Resources */,
+				40DCDF4F205C545A0039520A /* Storyboard_test.storyboard in Resources */,
+				405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */,
 				400B84B82056A2F900F56829 /* LaunchScreen.storyboard in Resources */,
 				400B84B52056A2F900F56829 /* Assets.xcassets in Resources */,
 				1B304CCE2061C2F400D8DD4B /* tailtoddle_lo4.mp3 in Resources */,
@@ -316,8 +357,11 @@
 				400B84DC2056A68900F56829 /* Feature.swift in Sources */,
 				400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */,
 				1B304CD22063240200D8DD4B /* WebLoadViewController.swift in Sources */,
+				405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */,
+				40DCDF51205C549C0039520A /* TestViewController.swift in Sources */,
 				400B84B32056A2F900F56829 /* CoreFeature.xcdatamodeld in Sources */,
 				400B84AD2056A2F900F56829 /* ViewController.swift in Sources */,
+				400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */,
 				400B84E12058067B00F56829 /* MapViewController.swift in Sources */,
 				1B9FD6D0205DB9CC00BD0923 /* JsonModel.swift in Sources */,
 				400B84AB2056A2F900F56829 /* AppDelegate.swift in Sources */,
@@ -489,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J278KQN87;
 				INFOPLIST_FILE = CoreFeature/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AshleyFurnitures.unit.CoreFeature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J278KQN87;
 				INFOPLIST_FILE = CoreFeature/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AshleyFurnitures.unit.CoreFeature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
