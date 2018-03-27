@@ -17,6 +17,9 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView?.showsUserLocation = true
+        mapView.delegate = self as? MKMapViewDelegate
+       // mapView.mapType = .hybrid
+      //mapView.setUserTrackingMode(.follow, animated: true)
         mapView.showsCompass = true
         initLocationParam()
         setupCompassButton()
@@ -25,7 +28,6 @@ class MapViewController: UIViewController {
 
     func setupUserTrackingButtonAndScaleView() {
         mapView.showsUserLocation = true
-
         if #available(iOS 11.0, *) {
             let button = MKUserTrackingButton(mapView: mapView)
             button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
@@ -34,20 +36,40 @@ class MapViewController: UIViewController {
             button.layer.cornerRadius = 5
             button.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(button)
-            
-            let scale = MKScaleView(mapView: mapView)
-            scale.legendAlignment = .trailing
-            scale.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(scale)
-            
-            NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-                                         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                                         scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
-                                         scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+
         } else {
             // Fallback on earlier versions
         }
-       
+        
+        
+//        if #available(iOS 11.0, *) {
+//            let scale = MKScaleView(mapView: mapView)
+//            scale.legendAlignment = .trailing
+//            scale.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview(scale)
+//
+//            NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+//                                         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//                                         scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+//                                         scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//
+            
+//            let scale = MKScaleView(mapView: mapView)
+//            scale.legendAlignment = .trailing
+//            scale.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview(scale)
+//
+//            NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+//                                         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//                                         scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+//                                         scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//
     }
     
     func setupCompassButton() {
@@ -59,7 +81,7 @@ class MapViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
+
     }
 
     func initLocationParam(){
@@ -113,8 +135,32 @@ extension MapViewController: MKMapViewDelegate {
     // 1 gets called for every annotation you add to the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        print(annotation.title.debugDescription)
+        print("mapView called:", annotation.title.debugDescription)
         
+//        if annotation is MKUserLocation {
+//            let pin = mapView.view(for: annotation) as? MKPinAnnotationView ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+//            pin.pinTintColor = UIColor.purple
+//            return pin
+//
+//        } else {
+//            guard let annotation = annotation as? PlaceMarkerModel else { return nil }
+//            // 3 To make markers appear, you create each view as an MKMarkerAnnotationView.
+//            let identifier = "marker"
+//            var view: MKMarkerAnnotationView
+//            // 4
+//            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//                as? MKMarkerAnnotationView {
+//                dequeuedView.annotation = annotation
+//                view = dequeuedView
+//            } else {
+//                // 5
+//                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//                view.canShowCallout = true
+//                view.calloutOffset = CGPoint(x: -5, y: 5)
+//                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            }
+        
+
         if annotation is MKUserLocation {
             if #available(iOS 11.0, *) {
                 let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
@@ -210,11 +256,15 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             let route = response.routes[0]
+
             
             self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
-            
+        
+    
+
             let rect = route.polyline.boundingMapRect
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+
         }
     }
     
@@ -230,8 +280,10 @@ extension MapViewController: MKMapViewDelegate {
         
         return renderer
     }
+
     
     
 }
+
 
 

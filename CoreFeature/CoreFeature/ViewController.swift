@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController{
     
+    var tableArray:[String]?
+    
     var list:[Feature] = [
         Feature(title: "Social Media", description: "Login with FB, Twitter & Google"),
         Feature(title: "Mapkit", description: "Test Map from google"),
+        Feature(title: "Json Test", description: "Json model testing"),
         Feature(title: "Photo Lib", description: "Test photo album")
     ]
 
@@ -21,11 +24,77 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+
         print(myIndex)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         print(myIndex)
+ 
+
+        self.getGithubUsers()
+    }
+
+    func parseJSON () {
+        
+        let username = "razibusa"
+        let password = "razib1243"
+        
+        let url = NSURL(string: "https://api.github.com/user")
+        let request = NSMutableURLRequest(url: url! as URL)
+        let loginString = "\(username):\(password)"
+        guard let loginData = loginString.data(using: String.Encoding.utf8) else {
+            return
+        }
+        let base64LoginString = loginData.base64EncodedString()
+        request.httpMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+            //   println("Response: \(response)")
+            let strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("Body: \(String(describing: strData))")
+            var _: NSError?
+            let json2 = try! JSONSerialization.jsonObject(with: (strData?.data(using: String.Encoding.utf8.rawValue))!, options: .mutableLeaves ) as! NSDictionary
+            
+            print("json2 :\(json2)")
+            
+            if((error) != nil) {
+                print(error!.localizedDescription)
+            }
+            else {
+                let success = json2["success"] as? Int
+                print("Succes: \(String(describing: success))")
+            }
+        })
+        
+        task.resume()
+    }
+    
+    func getGithubUsers(){
+        let url = URL(string: "https://api.github.com/users")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
+            
+            guard error == nil else {
+                print("returned error")
+                return
+            }
+            
+            guard let content = data else {
+                print("No data")
+                return
+            }
+            
+             let json = try! JSONSerialization.jsonObject(with: content,
+                                                                options: JSONSerialization.ReadingOptions.mutableContainers)
+            
+            
+            print(json)
+            
+        }
+        
+        task.resume()
     }
 
 }
@@ -51,10 +120,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(naviController, animated: true, completion: nil)
             
         } else if indexPath.item == 2 {
+
+                let storyboard = UIStoryboard(name: "Storyboard_json", bundle: nil)
+                let mapVC:JsonTestViewController = storyboard.instantiateViewController(withIdentifier: "JsonTestViewController_ID") as! JsonTestViewController
+                let naviController = UINavigationController(rootViewController: mapVC)
+                self.present(naviController, animated: true, completion: nil)
+                
+        }else if indexPath.item == 3 {
+
             let storyboard = UIStoryboard(name: "Storyboard_PH", bundle: nil)
             let mapVC:AlbumsViewController = storyboard.instantiateViewController(withIdentifier: "AlbumsViewController_ID") as! AlbumsViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
+
         }
     }
     
