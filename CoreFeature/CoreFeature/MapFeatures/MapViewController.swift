@@ -35,30 +35,45 @@ class MapViewController: UIViewController {
     func setupUserTrackingButtonAndScaleView() {
         mapView.showsUserLocation = true
         
-        let button = MKUserTrackingButton(mapView: mapView)
-        button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
+        if #available(iOS 11.0, *) {
+            let button = MKUserTrackingButton(mapView: mapView)
+            button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
+            button.layer.borderColor = UIColor.white.cgColor
+            button.layer.borderWidth = 1
+            button.layer.cornerRadius = 5
+            button.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(button)
+        } else {
+            // Fallback on earlier versions
+        }
         
-        let scale = MKScaleView(mapView: mapView)
-        scale.legendAlignment = .trailing
-        scale.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scale)
         
-        NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                                     scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
-                                     scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+//        if #available(iOS 11.0, *) {
+//            let scale = MKScaleView(mapView: mapView)
+//            scale.legendAlignment = .trailing
+//            scale.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview(scale)
+//
+//            NSLayoutConstraint.activate([button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+//                                         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//                                         scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+//                                         scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//
     }
     
     func setupCompassButton() {
-        let compass = MKCompassButton(mapView: mapView)
-        compass.compassVisibility = .visible
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: compass)
-        mapView.showsCompass = false
+        if #available(iOS 11.0, *) {
+            let compass = MKCompassButton(mapView: mapView)
+            compass.compassVisibility = .visible
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: compass)
+            mapView.showsCompass = false
+        } else {
+            // Fallback on earlier versions
+        }
+    
     }
 
     func initLocationParam(){
@@ -115,33 +130,33 @@ extension ViewController: MKMapViewDelegate {
         
         print("mapView called:", annotation.title.debugDescription)
         
-        if annotation is MKUserLocation {
-            let pin = mapView.view(for: annotation) as? MKPinAnnotationView ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-            pin.pinTintColor = UIColor.purple
-            return pin
+//        if annotation is MKUserLocation {
+//            let pin = mapView.view(for: annotation) as? MKPinAnnotationView ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+//            pin.pinTintColor = UIColor.purple
+//            return pin
+//
+//        } else {
+//            guard let annotation = annotation as? PlaceMarkerModel else { return nil }
+//            // 3 To make markers appear, you create each view as an MKMarkerAnnotationView.
+//            let identifier = "marker"
+//            var view: MKMarkerAnnotationView
+//            // 4
+//            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//                as? MKMarkerAnnotationView {
+//                dequeuedView.annotation = annotation
+//                view = dequeuedView
+//            } else {
+//                // 5
+//                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//                view.canShowCallout = true
+//                view.calloutOffset = CGPoint(x: -5, y: 5)
+//                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            }
+        
             
-        } else {
-            guard let annotation = annotation as? PlaceMarkerModel else { return nil }
-            // 3 To make markers appear, you create each view as an MKMarkerAnnotationView.
-            let identifier = "marker"
-            var view: MKMarkerAnnotationView
-            // 4
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKMarkerAnnotationView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                // 5
-                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            }
             
-            
-            
-            return view
-
+            return nil //view
+    
         }
       
         
@@ -158,6 +173,6 @@ extension ViewController: MKMapViewDelegate {
 //        return annotationView
         // 2
     }
-}
+
 
 

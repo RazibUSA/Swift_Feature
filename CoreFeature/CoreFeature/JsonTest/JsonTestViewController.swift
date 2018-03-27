@@ -10,11 +10,34 @@ import UIKit
 import AVFoundation
 
 class JsonTestViewController: UIViewController {
+    
+    var songPlayer = AVAudioPlayer()
+  //  var player = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        do {
+            let docUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+            let desURL = docUrl.appendingPathComponent("song.m4a")
+            
+//             songPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "tailtoddle_lo4", ofType: "mp3")!))
+songPlayer = try AVAudioPlayer(contentsOf: desURL)
+            songPlayer.prepareToPlay()
+//            let audioSession = AVAudioSession.sharedInstance()
+//            do {
+//                //10 - Set our session category to playback music
+//                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+//                //11 -
+//            } catch let sessionError {
+//
+//                print(sessionError)
+//            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+      //  loadM4a()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,51 +58,72 @@ class JsonTestViewController: UIViewController {
 
     @IBAction func runBtnClicked(_ sender: Any) {
         
-        let urlStr = URL(string: "http://radio.spainmedia.es/wp-content/uploads/2015/12/tailtoddle_lo4.mp3")
-        
-        downloadSound(url: urlStr!)
+    //    let urlStr = URL(string: "http://radio.spainmedia.es/wp-content/uploads/2015/12/tailtoddle_lo4.mp3")
+    //    downloadSound(url: urlStr!)
+        player.play()
         
     }
     
-    func downloadSound(url:URL){
+    func loadM4a(){
+        if let audioUrl = URL(string: "http://soundexpert.org/documents/10179/13123/se_ref4warp_FULL_08.m4a") {
+            
+            downloadSound(url: audioUrl)
+            // then lets create your document folder url
+            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            
+            // lets create your destination file url
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
+            
+            //let url = Bundle.main.url(forResource: destinationUrl, withExtension: "mp3")!
+    //        print(destinationUrl.path)
+            do {
+//                let audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
+//                 player = audioPlayer
+//                player.prepareToPlay()
+               
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+
+    }
+    
+    @IBAction func playdownload(_ sender: Any) {
         
+
+            //Bundle.main.url(forResource: "tailtoddle_lo4", withExtension: "mp3")!
+         //  let musicPath =  Bundle.main.path(forResource: "tailtoddle_lo4.mp3", ofType: nil)
+            
+        
+            
+      songPlayer.play()
+        
+       // }
+    }
+    
+    var player = AVAudioPlayer()
+    func downloadSound(url:URL){
+        let docUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+        let desURL = docUrl.appendingPathComponent("tmpsong.m4a")
         var downloadTask:URLSessionDownloadTask
-        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { [weak self](URL1, response, error) -> Void in
-            print("The url is \(URL1)")
-            
-            if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                print("Successfully downloaded. Status code: \(statusCode)")
-            }
-            DispatchQueue.global().async {
-                
-                
-                let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-                let documentDirectoryPath:String = path[0]
-                let fileManager = FileManager()
-                let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/song.mp3"))
-                
-                if fileManager.fileExists(atPath: destinationURLForFile.path){
-                    self?.showFileWithPath(url: destinationURLForFile)
-                    print(destinationURLForFile.path)
+        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { [weak self](URLData, response, error) -> Void in
+            do{
+                let isFileFound:Bool? = FileManager.default.fileExists(atPath: desURL.path)
+                if isFileFound == true{
+                      print(desURL) //delete tmpsong.m4a & copy
+                } else {
+                    try FileManager.default.copyItem(at: URLData!, to: desURL)
                 }
-                else{
-                    do {
-                        try fileManager.moveItem(at: URL1!, to: destinationURLForFile)
-                        // show file
-                        self?.showFileWithPath(url: destinationURLForFile)
-                    }catch{
-                        print("An error occurred while moving file to destination url")
-                    }
-                }
-                
-                
-                
-                
-                
-                
+                let sPlayer = try AVAudioPlayer(contentsOf: desURL)
+                self?.player = sPlayer
+                self?.player.prepareToPlay()
+                self?.player.play()
+
+            }catch let err {
+                print(err.localizedDescription)
             }
-            
-        })
+                
+            })
         downloadTask.resume()
     }
     
@@ -110,7 +154,39 @@ class JsonTestViewController: UIViewController {
         }
     }
     
-   
+    //    DispatchQueue.global().async {
+    
+    
+//    let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+//    let documentDirectoryPath:String = path[0]
+//    let fileManager = FileManager()
+//    let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/song.mp3"))
+//
+//    // then lets create your document folder url
+//    let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//
+//    // lets create your destination file url
+//    let destinationUrl = documentsDirectoryURL.appendingPathComponent((URL1?.lastPathComponent)!)
+//    print(destinationUrl)
+//
+//    if fileManager.fileExists(atPath: destinationUrl.path){
+//    self?.showFileWithPath(url: destinationUrl)
+//    print(destinationUrl.path)
+//    }
+//    else{
+//    do {
+//    try FileManager.default.moveItem(at: URL1!, to: destinationUrl)
+//    // show file
+//    self?.showFileWithPath(url: destinationUrl)
+//    }catch let error{
+//    print("An error occurred while moving file to destination url", error.localizedDescription)
+//    }
+//    }
+    
+//    let renameURL = URLData?
+//        .deletingPathExtension()
+//        .appendingPathExtension("m4a")
+//    print(renameURL)
     
     
 }
