@@ -21,8 +21,12 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        print(myIndex)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        print(myIndex)
+    }
 
 }
 
