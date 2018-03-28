@@ -8,16 +8,24 @@
 
 import UIKit
 import AVFoundation
+import HealthKit
+import HealthKitUI
 
 class JsonTestViewController: UIViewController {
     
+    @IBOutlet weak var playBtn: UIButton!
     var songPlayer = AVAudioPlayer()
   //  var player = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      makePostCall()
+    //  makePostCall()
+        
+        playBtn.isEnabled = false
+        playBtn.setImage(UIImage.init(named:"car_top"), for: .disabled)
+        playBtn.tintColor = UIColor.blue
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,40 +46,17 @@ class JsonTestViewController: UIViewController {
 
     @IBAction func runBtnClicked(_ sender: Any) {
         
-    //    let urlStr = URL(string: "http://radio.spainmedia.es/wp-content/uploads/2015/12/tailtoddle_lo4.mp3")
-    //    downloadSound(url: urlStr!)
-        player.play()
+   //tailtoddle_lo4.mp3")
+  //player.play()
+//        getExerciseTime(){ time in
+//            print(time)
+//
+//        }
         
+        loadM4a()
     }
     
-    func makePostCall() {
-        let todosEndpoint: String = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml?c9911b4d481e6ada019ba2d93f6cf780"
-        guard let todosURL = URL(string: todosEndpoint) else {
-            print("Error: cannot create URL")
-            return
-        }
-        var todosUrlRequest = URLRequest(url: todosURL)
-        todosUrlRequest.httpMethod = "GET"
-        
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: todosUrlRequest) {
-            (data, response, error) in
-            guard error == nil else {
-                print("error calling POST on /todos/1")
-                print(error!)
-                return
-            }
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                return
-            }
-            
-            print(data)
-        }
-        task.resume()
-    }
+
     
     
     

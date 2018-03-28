@@ -16,7 +16,8 @@ class ViewController: UIViewController{
         Feature(title: "Social Media", description: "Login with FB, Twitter & Google"),
         Feature(title: "Mapkit", description: "Test Map from google"),
         Feature(title: "Json Test", description: "Json model testing"),
-        Feature(title: "Photo Lib", description: "Test photo album")
+        Feature(title: "Photo Lib", description: "Test photo album"),
+        Feature(title: "Audio", description: "Record voice")
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -97,6 +98,9 @@ class ViewController: UIViewController{
         task.resume()
     }
 
+    
+  
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -133,6 +137,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
 
+        }
+        else if indexPath.item == 4 {
+            let storyboard = UIStoryboard(name: "audio", bundle: nil)
+            let mapVC:AudioViewController = storyboard.instantiateViewController(withIdentifier: "AudioViewController_ID") as! AudioViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
         }
     }
     

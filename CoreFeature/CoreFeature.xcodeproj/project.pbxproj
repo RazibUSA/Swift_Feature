@@ -26,6 +26,8 @@
 		400B84E12058067B00F56829 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E02058067B00F56829 /* MapViewController.swift */; };
 		400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */; };
 		400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E5205AC7F800F56829 /* ProgressView.swift */; };
+		4017952B206C1E6600F43A99 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017952A206C1E6600F43A99 /* AudioViewController.swift */; };
+		4017952D206C226900F43A99 /* audio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4017952C206C226900F43A99 /* audio.storyboard */; };
 		405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405937A42060375500221ED9 /* Storyboard_PH.storyboard */; };
 		405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405937A62060384400221ED9 /* AlbumsViewController.swift */; };
 		40DCDF4F205C545A0039520A /* Storyboard_test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */; };
@@ -75,6 +77,8 @@
 		400B84E02058067B00F56829 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		400B84E220584E3E00F56829 /* PlaceMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerModel.swift; sourceTree = "<group>"; };
 		400B84E5205AC7F800F56829 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		4017952A206C1E6600F43A99 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		4017952C206C226900F43A99 /* audio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = audio.storyboard; sourceTree = "<group>"; };
 		405937A42060375500221ED9 /* Storyboard_PH.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_PH.storyboard; sourceTree = "<group>"; };
 		405937A62060384400221ED9 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		40DCDF4E205C545A0039520A /* Storyboard_test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_test.storyboard; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				1B9FD6D1205DB9EC00BD0923 /* JsonTestViewController.swift */,
 				1B9FD6D3205DBA1A00BD0923 /* Storyboard_json.storyboard */,
 				1B304CD12063240200D8DD4B /* WebLoadViewController.swift */,
+				4017952A206C1E6600F43A99 /* AudioViewController.swift */,
+				4017952C206C226900F43A99 /* audio.storyboard */,
 			);
 			path = JsonTest;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				400B84B52056A2F900F56829 /* Assets.xcassets in Resources */,
 				1B304CCE2061C2F400D8DD4B /* tailtoddle_lo4.mp3 in Resources */,
 				400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */,
+				4017952D206C226900F43A99 /* audio.storyboard in Resources */,
 				400B84B02056A2F900F56829 /* Main.storyboard in Resources */,
 				1B9FD6D4205DBA1A00BD0923 /* Storyboard_json.storyboard in Resources */,
 			);
@@ -365,6 +372,7 @@
 				400B84E12058067B00F56829 /* MapViewController.swift in Sources */,
 				1B9FD6D0205DB9CC00BD0923 /* JsonModel.swift in Sources */,
 				400B84AB2056A2F900F56829 /* AppDelegate.swift in Sources */,
+				4017952B206C1E6600F43A99 /* AudioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
