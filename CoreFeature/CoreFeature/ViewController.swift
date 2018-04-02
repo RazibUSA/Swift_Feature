@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, UIScrollViewDelegate{
     
     var tableArray:[String]?
     
@@ -17,8 +17,21 @@ class ViewController: UIViewController{
         Feature(title: "Mapkit", description: "Test Map from google"),
         Feature(title: "Json Test", description: "Json model testing"),
         Feature(title: "Photo Lib", description: "Test photo album"),
-        Feature(title: "Audio", description: "Record voice")
+        Feature(title: "Audio", description: "Record voice"),
+        Feature(title: "Test", description: "Various... "),
+        Feature(title: "Page", description: "Test... "),
+        Feature(title: "PDF", description: "web... "),
+        Feature(title: "AVPlayer", description: "Test seek... ")
     ]
+    
+    var isMore:Bool = true
+    var totalSteps: Int = 2 {
+        didSet {
+            
+            tableView.reloadData()
+            
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -33,7 +46,7 @@ class ViewController: UIViewController{
         print(myIndex)
  
 
-        self.getGithubUsers()
+       // self.getGithubUsers()
     }
 
     func parseJSON () {
@@ -97,10 +110,6 @@ class ViewController: UIViewController{
         
         task.resume()
     }
-
-    
-  
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -143,8 +152,48 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let mapVC:AudioViewController = storyboard.instantiateViewController(withIdentifier: "AudioViewController_ID") as! AudioViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 5 {
+            
+            
+            let storyboard = UIStoryboard(name: "test", bundle: nil)
+            let mapVC:TestViewController = storyboard.instantiateViewController(withIdentifier: "TestViewController_ID") as! TestViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 6 {
+            let pvc = PageViewController()
+            let naviController = UINavigationController(rootViewController: pvc)
+            self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 7 {
+            
+            let storyboard = UIStoryboard(name: "pdf", bundle: nil)
+            let mapVC:PdfViewController = storyboard.instantiateViewController(withIdentifier: "PdfViewController_ID") as! PdfViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 8{
+            let storyboard = UIStoryboard(name: "audio", bundle: nil)
+            let mapVC:AVPlayerViewController = storyboard.instantiateViewController(withIdentifier: "AVPlayerViewController_ID") as! AVPlayerViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
         }
     }
     
+//
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//       print(indexPath.row)
+//
+//        if indexPath.row == totalSteps - 1 {
+//            print("RRRRR")
+//            isMore = !isMore
+//            if(isMore) {
+//                self.totalSteps = self.totalSteps + 2
+//            }
+//
+//        }
+//
+//    }
+    
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("I'm scrolling!")
+//    }
     
 }

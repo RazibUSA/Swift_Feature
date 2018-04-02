@@ -85,33 +85,39 @@ extension AlbumsViewController : UITableViewDelegate, UITableViewDataSource {
         myIndex = indexPath.row
         print(myIndex)
         
-//        switch Section(rawValue: indexPath.section)! {
-//
-//        case .autoAlbums:
-//            let collection = defaultAlbums.object(at: indexPath.row)
-//            let result = PHAsset.fetchAssets(in: collection, options: nil)
-//            let asset = result.object(at: indexPath.row)
-//            let imageManager = PHCachingImageManager()
-//            imageManager.requestImage(for: asset, targetSize: CGSize(width: 20.0, height:20.0) , contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-//
-//                print(image)
-//
-//            })
-//        case .userCollections:
-//            let collection = userCollections.object(at: indexPath.row)
-//            let result = PHAsset.fetchAssets(in: collection as! PHAssetCollection, options: nil)
-//            let asset = result.object(at: indexPath.row)
-//            let imageManager = PHCachingImageManager()
-//            imageManager.requestImage(for: asset, targetSize: CGSize(width: 20.0, height:20.0) , contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-//
-//                   print(image)
-//
-//            })
-//        }
+        switch Section(rawValue: indexPath.section)! {
+
+        case .autoAlbums:
+            let collection = defaultAlbums.object(at: indexPath.row)
+            let result = PHAsset.fetchAssets(in: collection, options: nil)
+            let asset = result.object(at: indexPath.row)
+            let imageManager = PHCachingImageManager()
+            imageManager.requestImage(for: asset, targetSize: CGSize(width: 20.0, height:20.0) , contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+
+                print(image)
+
+            })
+        case .userCollections:
+            let collection = userCollections.object(at: indexPath.row)
+            let result = PHAsset.fetchAssets(in: collection as! PHAssetCollection, options: nil)
+            
+            let asset = result.object(at: indexPath.row)
+
+            let imageManager = PHCachingImageManager()
+            imageManager.requestImage(for: asset, targetSize: CGSize(width: 20.0, height:20.0) , contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+
+                   print(image)
+
+            })
+        }
     
     self.dismiss(animated: false, completion: nil)
     
     }
+    
+    
+    
+    
 }
 
 extension AlbumsViewController: PHPhotoLibraryChangeObserver {

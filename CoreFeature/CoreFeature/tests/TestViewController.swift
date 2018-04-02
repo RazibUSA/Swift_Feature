@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class TestViewController: UIViewController {
 
@@ -15,7 +17,8 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
+       // self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +26,16 @@ class TestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("BBBB")
+//        let backgroundImage = UIImage(named: "bg")
+//        let imageView = UIImageView(frame: UIScreen.main.bounds)
+//        imageView.image = backgroundImage
+//        imageView.contentMode = .scaleToFill
+//        self.view.addSubview(imageView)
+    }
+    
+   
 
     /*
     // MARK: - Navigation
@@ -34,6 +47,18 @@ class TestViewController: UIViewController {
     }
     */
     @IBAction func btn1_clicked(_ sender: Any) {
+        guard let videoURL = URL(string: "http://caribbeancinemas.com/img/trailers/6134.mp4") else {
+            return
+        }
+        let videoOutput = AVPlayerItemVideoOutput(pixelBufferAttributes: [String(kCVPixelBufferPixelFormatTypeKey): NSNumber(value: kCVPixelFormatType_32BGRA)])
+        let player = AVPlayer(url: videoURL)
+        player.currentItem!.add(videoOutput)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        present(controller, animated: true) {
+            player.play()
+        }
     }
     
     @IBAction func btn2_clicked(_ sender: Any) {

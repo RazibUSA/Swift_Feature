@@ -13,7 +13,7 @@
         <!--Test View Controller-->
         <scene sceneID="gUV-GM-LKq">
             <objects>
-                <viewController id="dXb-0L-6z2" customClass="TestViewController" customModule="CoreFeature" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController_ID" id="dXb-0L-6z2" customClass="TestViewController" customModule="CoreFeature" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sXi-PF-W7j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,10 +34,6 @@
                                     <action selector="btn2_clicked:" destination="dXb-0L-6z2" eventType="touchUpInside" id="SZ9-oU-cMD"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Qv-Xu-C46">
-                                <rect key="frame" x="93" y="402" width="178" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kyH-0n-eHK"/>

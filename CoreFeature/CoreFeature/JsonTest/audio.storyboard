@@ -74,5 +74,20 @@
             </objects>
             <point key="canvasLocation" x="134" y="-42"/>
         </scene>
+        <!--Player View Controller-->
+        <scene sceneID="Nk1-uv-yow">
+            <objects>
+                <viewController storyboardIdentifier="AVPlayerViewController_ID" id="LVu-fe-ww2" customClass="AVPlayerViewController" customModule="CoreFeature" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zD5-w5-fwR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BiO-Id-4SM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQV-yT-9Fq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098" y="-28"/>
+        </scene>
     </scenes>
 </document>
