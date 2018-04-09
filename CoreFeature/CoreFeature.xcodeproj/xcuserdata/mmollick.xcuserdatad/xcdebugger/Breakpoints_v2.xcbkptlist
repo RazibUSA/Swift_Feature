@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "CoreFeature/ViewController.swift"
-            timestampString = "544328424.744155"
+            timestampString = "544926067.777388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Actions>
@@ -98,11 +98,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CoreFeature/tests/TestViewController.swift"
-            timestampString = "544328424.744217"
+            timestampString = "544926067.777475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "btn1_clicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,6 +152,38 @@
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "showLoadingView(inViewController:turning:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoreFeature/webPdf/PdfViewController.swift"
+            timestampString = "544926067.778088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoreFeature/webPdf/PdfViewController.swift"
+            timestampString = "544926067.778146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

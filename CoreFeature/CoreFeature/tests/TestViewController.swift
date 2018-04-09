@@ -10,20 +10,57 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var springView: UIView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn1: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
        // self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
+        LinkAttributeTest()
+        createToolBar()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func sortList() {
+        var myList: [(String, Double)] = [("Name1", 0.1), ("Name2", 0.2), ("Name4", 0.4)]
+      
+        
+        let myNewElement: (String, Double) = ("Name3", 0.3)
+        
+        if let insertionIndex = myList.index(where: {myNewElement.1 <= $0.1}) {
+            
+            myList.insert(myNewElement, at: insertionIndex)
+        }
+        
+        // myList = [("Name1", 0.1), ("Name2", 0.2), ("Name3", 0.3), ("Name4", 0.4)]
+    }
+    
+    
+     func LinkAttributeTest() {
+        
+        textView.delegate = self;
+        textView.isSelectable = true
+        textView.isEditable = false
+        textField.delegate = self
+        
+        let linkAttributes : [NSAttributedStringKey : Any] = [.link: URL(string: "https://exemple.com")!,
+            .font:UIFont.boldSystemFont(ofSize: 18),
+            .foregroundColor: UIColor.blue,
+            .strokeColor : UIColor.black,
+            .strokeWidth : -1] ;
+            let attributedString  = NSMutableAttributedString(string: "Just click here to do stuff...")
+            attributedString.setAttributes(linkAttributes, range:NSMakeRange(5, 10))
+            textView.attributedText = attributedString;
+        
+//        var img = UIImage(named: "bg.png")
+//        view.layer.contents = img?.cgImage
+        
+       let image =  UIImage(named: "car_top")
+       springView.layer.contents = image?.cgImage
+       springView.contentMode = UIViewContentMode.center
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +99,50 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func btn2_clicked(_ sender: Any) {
+        let menu = Menu(viewcontroler: self)
+        menu.show()
     }
+    
+    let textCountLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "0/2000"
+        lb.textColor = .lightGray
+        lb.sizeToFit()
+        return lb
+    }()
+    
+    func createToolBar(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        var items = [UIBarButtonItem]()
+        
+////        items.append(
+//            UIBarButtonItem(customView: anonymousButton)
+//        )
+        items.append(
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        )
+        items.append(
+            UIBarButtonItem(customView: textCountLabel)
+        )
+        toolBar.setItems(items, animated: true)
+        
+        textField.inputAccessoryView = toolBar
+    }
+    
+    
+   func textFieldDidChange(textField : UITextField){
+        textCountLabel.text = String(describing: textField.text?.characters.count) + "/2000"
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        textCountLabel.text =  "11/2000"
+        textCountLabel.sizeToFit()
+    return true
+    }
+
     
     var anim:CABasicAnimation?
     

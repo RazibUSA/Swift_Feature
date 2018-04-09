@@ -21,7 +21,10 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         Feature(title: "Test", description: "Various... "),
         Feature(title: "Page", description: "Test... "),
         Feature(title: "PDF", description: "web... "),
-        Feature(title: "AVPlayer", description: "Test seek... ")
+        Feature(title: "AVPlayer", description: "Test seek... "),
+        Feature(title: "Table", description: "Test seek... "),
+        Feature(title: "Pull to refresh", description: "Search seek... "),
+        Feature(title: "Search", description: "Search seek... ")
     ]
     
     var isMore:Bool = true
@@ -172,6 +175,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.item == 8{
             let storyboard = UIStoryboard(name: "audio", bundle: nil)
             let mapVC:AVPlayerViewController = storyboard.instantiateViewController(withIdentifier: "AVPlayerViewController_ID") as! AVPlayerViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        }
+        else if indexPath.item == 9{
+            let storyboard = UIStoryboard(name: "table", bundle: nil)
+            let mapVC:BasicTableViewController = storyboard.instantiateViewController(withIdentifier: "BasicTableViewController_ID") as! BasicTableViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        }else if indexPath.item == 10{
+            let storyboard = UIStoryboard(name: "search", bundle: nil)
+            let mapVC:RefreshViewController = storyboard.instantiateViewController(withIdentifier: "RefreshViewController_ID") as! RefreshViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        }else if indexPath.item == 11{
+            let storyboard = UIStoryboard(name: "search", bundle: nil)
+            let mapVC:SearchViewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController_ID") as! SearchViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
         }

@@ -53,7 +53,8 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource, UIPa
     
     func setupPageControl() {
 
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
+//        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
+         pageControl = UIPageControl(frame: CGRect(x: 0,y: 0,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = 2
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.lightGray
@@ -84,12 +85,13 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource, UIPa
             pageViewController.didMove(toParentViewController: self)
             
             
-        setupPageControl()
+       // setupPageControl()
+      //  setupPageControl1
         
     }
     
     private func setupPageControl1() {
-        let appearance = UIPageControl.appearance()
+        let appearance =  UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.lightGray
         appearance.currentPageIndicatorTintColor = UIColor.black
         appearance.backgroundColor = UIColor.clear

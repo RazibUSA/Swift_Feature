@@ -13,16 +13,41 @@ class PdfViewController: UIViewController, WKUIDelegate {
     let videocode = "uuxXHAKA1WY"
     @IBOutlet weak var webView: WKWebView!
     
+    @IBOutlet weak var webviewOld: UIWebView!
+    
+    var refreshControl:UIRefreshControl?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackButton()
  //      let url = URL(string: "http://www.iso.org/iso/annual_report_2009.pdf")
 //        let url = URL(string:"http://mailer.hdfcbank.com/campaign/Asset/hdfcbank_credit-card-rewards-catalogue.pdf?_ga=2.15849718.1539559274.1522467278-2054142928.1522467278")
         let url = URL(string : "https://www.hdfcbank.com/assets/pdf/Rewards_Catalogue.pdf")
-        let request = URLRequest(url : url!)
-        webView.load(request)
         
-//        let data = try!  Data(contentsOf: desURL)
+        
+        
+        let scurl = URL(string: "http://insight.dev.schoolwires.com/HelpAssets/C2Assets/C2Files/C2ImportFamRelSample.csv")
+        let request = URLRequest(url : scurl!)
+      //  webView.load(request)
+        
+      //  webView.load(URLRequest(url: scurl!))
+        
+        
+        let data = try! Data(contentsOf: scurl!)
+        
+        
+        
+        webView.load(data, mimeType: "/csv", characterEncodingName: "", baseURL: (scurl?.deletingLastPathComponent())!)
+        
+        
+    //    webviewOld.load(csvData, mimeType: "text/csv", textEncodingName: "", baseURL: csvUrl)
+     //   webView.load(csvData, mimeType: "text/csv", characterEncodingName: "UTF-8", baseURL: (csvUrl.deletingLastPathComponent()))
+     //   webView.loadFileURL(csvUrl, allowingReadAccessTo: csvUrl)
+      
+        
+        // webView.load(csvData, mimeType: "text/csv", textEncodingName: "", baseURL: csvUrl)
+        
+//        let data =
 //        webView.load(data, mimeType: "application/pdf", characterEncodingName: "", baseURL: (desURL.deletingLastPathComponent()))
         
 //        if let pdfURL = Bundle.main.url(forResource: "myPDF", withExtension: "pdf", subdirectory: nil, localization: nil)  {
@@ -38,11 +63,11 @@ class PdfViewController: UIViewController, WKUIDelegate {
 //            }
        // loadPdf(url: url!)
         
-        fetchOffers(success:{[weak self] (code) in
-            self?.getVideo(videoCode: code)
-        }) { (error) in
-            print(error)
-        }
+//        fetchOffers(success:{[weak self] (code) in
+//            self?.getVideo(videoCode: code)
+//        }) { (error) in
+//            print(error)
+//        }
     }
     
     func addBackButton() {
