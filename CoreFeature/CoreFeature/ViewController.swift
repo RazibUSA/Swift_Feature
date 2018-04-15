@@ -24,7 +24,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         Feature(title: "AVPlayer", description: "Test seek... "),
         Feature(title: "Table", description: "Test seek... "),
         Feature(title: "Pull to refresh", description: "Search seek... "),
-        Feature(title: "Search", description: "Search seek... ")
+        Feature(title: "Search", description: "Search seek... "),
+        Feature(title: "Text Field", description: "Search seek... "),
+        Feature(title: "Progress", description: "Progress Menu View... ")
     ]
     
     var isMore:Bool = true
@@ -188,12 +190,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let mapVC:RefreshViewController = storyboard.instantiateViewController(withIdentifier: "RefreshViewController_ID") as! RefreshViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
-        }else if indexPath.item == 11{
+        } else if indexPath.item == 11{
             let storyboard = UIStoryboard(name: "search", bundle: nil)
             let mapVC:SearchViewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController_ID") as! SearchViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 12 {
+            let storyboard = UIStoryboard(name: "form", bundle: nil)
+            let mapVC:ValidatorTestViewController = storyboard.instantiateViewController(withIdentifier: "ValidatorTestViewController_ID") as! ValidatorTestViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 13 {
+            let storyboard = UIStoryboard(name: "progress", bundle: nil)
+            let mapVC:ProgressViewController = storyboard.instantiateViewController(withIdentifier: "ProgressViewController_ID") as! ProgressViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
         }
+        
     }
     
 //

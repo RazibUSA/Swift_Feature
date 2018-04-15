@@ -28,6 +28,17 @@
 		400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84E5205AC7F800F56829 /* ProgressView.swift */; };
 		4017952B206C1E6600F43A99 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017952A206C1E6600F43A99 /* AudioViewController.swift */; };
 		4017952D206C226900F43A99 /* audio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4017952C206C226900F43A99 /* audio.storyboard */; };
+		4031F28B207E8CCF000F7A0E /* form.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4031F28A207E8CCF000F7A0E /* form.storyboard */; };
+		4031F28D207E8E82000F7A0E /* ValidatorTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F28C207E8E82000F7A0E /* ValidatorTestViewController.swift */; };
+		4031F28F207E8EA7000F7A0E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F28E207E8EA7000F7A0E /* Validator.swift */; };
+		4031F291207FB35D000F7A0E /* TextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4031F290207FB35D000F7A0E /* TextFieldView.xib */; };
+		4031F293207FB64E000F7A0E /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F292207FB64E000F7A0E /* TextFieldView.swift */; };
+		4031F29520803CA6000F7A0E /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 4031F29420803CA6000F7A0E /* test.html */; };
+		4031F29720811FDD000F7A0E /* pdfviewtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F29620811FDD000F7A0E /* pdfviewtest.swift */; };
+		4031F29A208293B5000F7A0E /* progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4031F299208293B5000F7A0E /* progress.storyboard */; };
+		4031F29C208293CB000F7A0E /* ProgressMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F29B208293CB000F7A0E /* ProgressMenuView.swift */; };
+		4031F29E20829402000F7A0E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031F29D20829402000F7A0E /* ProgressViewController.swift */; };
+		4031F2A020829653000F7A0E /* ProgressMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4031F29F20829653000F7A0E /* ProgressMenuView.xib */; };
 		405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405937A42060375500221ED9 /* Storyboard_PH.storyboard */; };
 		405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405937A62060384400221ED9 /* AlbumsViewController.swift */; };
 		40A892372072BA39002F30BE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A892362072BA39002F30BE /* Menu.swift */; };
@@ -47,6 +58,7 @@
 		40D3A8DD2078D829002ED328 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3A8DC2078D829002ED328 /* SearchViewController.swift */; };
 		40D3A8DF2078F1BC002ED328 /* RefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3A8DE2078F1BC002ED328 /* RefreshViewController.swift */; };
 		40D3A902207AB1AF002ED328 /* BasicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3A901207AB1AF002ED328 /* BasicTableViewController.swift */; };
+		40D3A904207B6AE2002ED328 /* PageUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3A903207B6AE2002ED328 /* PageUserViewController.swift */; };
 		40DCDF4F205C545A0039520A /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DCDF4E205C545A0039520A /* test.storyboard */; };
 		40DCDF51205C549C0039520A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCDF50205C549C0039520A /* TestViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +108,17 @@
 		400B84E5205AC7F800F56829 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		4017952A206C1E6600F43A99 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		4017952C206C226900F43A99 /* audio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = audio.storyboard; sourceTree = "<group>"; };
+		4031F28A207E8CCF000F7A0E /* form.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = form.storyboard; sourceTree = "<group>"; };
+		4031F28C207E8E82000F7A0E /* ValidatorTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTestViewController.swift; sourceTree = "<group>"; };
+		4031F28E207E8EA7000F7A0E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		4031F290207FB35D000F7A0E /* TextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldView.xib; sourceTree = "<group>"; };
+		4031F292207FB64E000F7A0E /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		4031F29420803CA6000F7A0E /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		4031F29620811FDD000F7A0E /* pdfviewtest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfviewtest.swift; sourceTree = "<group>"; };
+		4031F299208293B5000F7A0E /* progress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progress.storyboard; sourceTree = "<group>"; };
+		4031F29B208293CB000F7A0E /* ProgressMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressMenuView.swift; sourceTree = "<group>"; };
+		4031F29D20829402000F7A0E /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		4031F29F20829653000F7A0E /* ProgressMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressMenuView.xib; sourceTree = "<group>"; };
 		405937A42060375500221ED9 /* Storyboard_PH.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_PH.storyboard; sourceTree = "<group>"; };
 		405937A62060384400221ED9 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		40A892362072BA39002F30BE /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -115,6 +138,7 @@
 		40D3A8DC2078D829002ED328 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		40D3A8DE2078F1BC002ED328 /* RefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewController.swift; sourceTree = "<group>"; };
 		40D3A901207AB1AF002ED328 /* BasicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewController.swift; sourceTree = "<group>"; };
+		40D3A903207B6AE2002ED328 /* PageUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageUserViewController.swift; sourceTree = "<group>"; };
 		40DCDF4E205C545A0039520A /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		40DCDF50205C549C0039520A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,9 +209,12 @@
 		400B84A92056A2F900F56829 /* CoreFeature */ = {
 			isa = PBXGroup;
 			children = (
+				4031F2982082939D000F7A0E /* ProgressBarMenu */,
 				40A892382073B6B4002F30BE /* sample.csv */,
+				4031F29420803CA6000F7A0E /* test.html */,
 				1B304CCD2061C2F400D8DD4B /* tailtoddle_lo4.mp3 */,
 				1B304CCF2062966000D8DD4B /* PurpleRain.m4a */,
+				4031F289207E8CA2000F7A0E /* formValidation */,
 				40D3A8D92078D77F002ED328 /* tableSearch */,
 				40CC5667207067D40032493B /* firebase */,
 				40D00293206F1A0700231EA4 /* webPdf */,
@@ -245,6 +272,29 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		4031F289207E8CA2000F7A0E /* formValidation */ = {
+			isa = PBXGroup;
+			children = (
+				4031F28A207E8CCF000F7A0E /* form.storyboard */,
+				4031F28C207E8E82000F7A0E /* ValidatorTestViewController.swift */,
+				4031F28E207E8EA7000F7A0E /* Validator.swift */,
+				4031F290207FB35D000F7A0E /* TextFieldView.xib */,
+				4031F292207FB64E000F7A0E /* TextFieldView.swift */,
+			);
+			path = formValidation;
+			sourceTree = "<group>";
+		};
+		4031F2982082939D000F7A0E /* ProgressBarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4031F299208293B5000F7A0E /* progress.storyboard */,
+				4031F29B208293CB000F7A0E /* ProgressMenuView.swift */,
+				4031F29D20829402000F7A0E /* ProgressViewController.swift */,
+				4031F29F20829653000F7A0E /* ProgressMenuView.xib */,
+			);
+			path = ProgressBarMenu;
+			sourceTree = "<group>";
+		};
 		405937A32060373000221ED9 /* PhotoFrame */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +336,7 @@
 				40D0028D206EEEEB00231EA4 /* DomesticViewController.swift */,
 				40D0028F206EF0B500231EA4 /* page.storyboard */,
 				40D00291206EFD5700231EA4 /* SafariPageViewController.swift */,
+				40D3A903207B6AE2002ED328 /* PageUserViewController.swift */,
 			);
 			path = PageViewController;
 			sourceTree = "<group>";
@@ -295,6 +346,7 @@
 			children = (
 				40D00294206F1A1C00231EA4 /* PdfViewController.swift */,
 				40D00296206F1A2E00231EA4 /* pdf.storyboard */,
+				4031F29620811FDD000F7A0E /* pdfviewtest.swift */,
 			);
 			path = webPdf;
 			sourceTree = "<group>";
@@ -427,14 +479,19 @@
 			files = (
 				1B304CD0206296B600D8DD4B /* PurpleRain.m4a in Resources */,
 				40DCDF4F205C545A0039520A /* test.storyboard in Resources */,
+				4031F29A208293B5000F7A0E /* progress.storyboard in Resources */,
 				40D00290206EF0B500231EA4 /* page.storyboard in Resources */,
 				405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */,
 				400B84B82056A2F900F56829 /* LaunchScreen.storyboard in Resources */,
 				400B84B52056A2F900F56829 /* Assets.xcassets in Resources */,
+				4031F291207FB35D000F7A0E /* TextFieldView.xib in Resources */,
 				40A892392073B6B4002F30BE /* sample.csv in Resources */,
+				4031F29520803CA6000F7A0E /* test.html in Resources */,
+				4031F2A020829653000F7A0E /* ProgressMenuView.xib in Resources */,
 				1B304CCE2061C2F400D8DD4B /* tailtoddle_lo4.mp3 in Resources */,
 				400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */,
 				4017952D206C226900F43A99 /* audio.storyboard in Resources */,
+				4031F28B207E8CCF000F7A0E /* form.storyboard in Resources */,
 				400B84B02056A2F900F56829 /* Main.storyboard in Resources */,
 				1B9FD6D4205DBA1A00BD0923 /* Storyboard_json.storyboard in Resources */,
 				40D00297206F1A2E00231EA4 /* pdf.storyboard in Resources */,
@@ -468,19 +525,26 @@
 				40A892402074F5E7002F30BE /* TableViewController.swift in Sources */,
 				1B9FD6D2205DB9EC00BD0923 /* JsonTestViewController.swift in Sources */,
 				40A8924220754EAD002F30BE /* AttributeViewController.swift in Sources */,
+				4031F293207FB64E000F7A0E /* TextFieldView.swift in Sources */,
+				4031F28F207E8EA7000F7A0E /* Validator.swift in Sources */,
+				40D3A904207B6AE2002ED328 /* PageUserViewController.swift in Sources */,
 				40D3A8DF2078F1BC002ED328 /* RefreshViewController.swift in Sources */,
 				400B84DC2056A68900F56829 /* Feature.swift in Sources */,
 				40D07DC2206DB0E8001620F2 /* OperatorOverloading.swift in Sources */,
 				400B84E320584E3E00F56829 /* PlaceMarkerModel.swift in Sources */,
+				4031F29E20829402000F7A0E /* ProgressViewController.swift in Sources */,
 				1B304CD22063240200D8DD4B /* WebLoadViewController.swift in Sources */,
 				405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */,
 				40D0028C206EEEAD00231EA4 /* PageViewController.swift in Sources */,
 				40DCDF51205C549C0039520A /* TestViewController.swift in Sources */,
 				400B84B32056A2F900F56829 /* CoreFeature.xcdatamodeld in Sources */,
 				400B84AD2056A2F900F56829 /* ViewController.swift in Sources */,
+				4031F29C208293CB000F7A0E /* ProgressMenuView.swift in Sources */,
 				40D3A902207AB1AF002ED328 /* BasicTableViewController.swift in Sources */,
 				40D3A8DD2078D829002ED328 /* SearchViewController.swift in Sources */,
+				4031F29720811FDD000F7A0E /* pdfviewtest.swift in Sources */,
 				400B84E6205AC7F800F56829 /* ProgressView.swift in Sources */,
+				4031F28D207E8E82000F7A0E /* ValidatorTestViewController.swift in Sources */,
 				400B84E12058067B00F56829 /* MapViewController.swift in Sources */,
 				1B9FD6D0205DB9CC00BD0923 /* JsonModel.swift in Sources */,
 				40A892372072BA39002F30BE /* Menu.swift in Sources */,
