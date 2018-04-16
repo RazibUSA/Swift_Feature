@@ -30,14 +30,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-45-ubC" customClass="TextFieldView" customModule="CoreFeature" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="206" width="375" height="84"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-45-ubC" customClass="TextFieldView" customModule="CoreFeature" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="206" width="375" height="86"/>
                                 <color key="backgroundColor" red="0.87292883030000001" green="0.82656499289999996" blue="0.49448587960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="z04-pg-hkT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Email"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tfBorderColor">
+                                        <color key="value" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="tfBorderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="tfCornerRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="ic_lock_open"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Password"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -65,4 +79,7 @@
             <point key="canvasLocation" x="-247.19999999999999" y="174.96251874062969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_lock_open" width="24" height="24"/>
+    </resources>
 </document>

@@ -28,6 +28,41 @@ import UIKit
         }
     }
     
+    @IBInspectable var leftImage : UIImage? {
+        didSet {
+            if let image = leftImage{
+                textField.leftViewMode = .always
+                let imageView = UIImageView(frame: CGRect(x: 2, y: 0, width: 20, height: 20))
+                imageView.image = image
+                imageView.tintColor = UIColor.red
+                let view = UIView(frame : CGRect(x: 0, y: 0, width: 24, height: 20))
+                view.addSubview(imageView)
+                textField.leftView = view
+            }else {
+                textField.leftViewMode = .never
+            }
+            
+        }
+    }
+    
+    @IBInspectable var placeholderText: String? {
+        get {
+            return textField.placeholder
+        }
+        set(text) {
+            textField.placeholder = text
+        }
+    }
+    
+    @IBInspectable var placeholderColor : UIColor? {
+        didSet {
+            let rawString = textField.attributedPlaceholder?.string != nil ? textField.attributedPlaceholder!.string : ""
+            let str = NSAttributedString(string: rawString, attributes: [NSAttributedStringKey.foregroundColor : placeholderColor!])
+           textField.attributedPlaceholder = str
+        }
+    }
+
+    
     @IBInspectable var textFieldText: String? {
         get {
             return textField.text
@@ -42,6 +77,29 @@ import UIKit
             messageLbl.text = text
         }
     }
+    
+    @IBInspectable
+    public var tfCornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.textField.layer.cornerRadius = self.tfCornerRadius
+        }
+    }
+    
+    @IBInspectable
+    public var tfBorderWidth: CGFloat = 0.0 {
+        didSet {
+            self.textField.layer.borderWidth = self.tfBorderWidth
+        }
+    }
+    
+    @IBInspectable
+    public var tfBorderColor: UIColor = UIColor.gray {
+        didSet {
+            self.textField.layer.borderColor = self.tfBorderColor.cgColor
+        }
+    }
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,7 +118,6 @@ import UIKit
         view.frame = bounds
         view.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)))
         
-        textField.layer.borderColor = UIColor.gray.cgColor
          textField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         self.addSubview(view)
     }

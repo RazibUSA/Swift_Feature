@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B26E57020842D4A00E0A828 /* IconSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B26E56F20842D4A00E0A828 /* IconSet.xcassets */; };
 		1B304CCE2061C2F400D8DD4B /* tailtoddle_lo4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B304CCD2061C2F400D8DD4B /* tailtoddle_lo4.mp3 */; };
 		1B304CD0206296B600D8DD4B /* PurpleRain.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1B304CCF2062966000D8DD4B /* PurpleRain.m4a */; };
 		1B304CD22063240200D8DD4B /* WebLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B304CD12063240200D8DD4B /* WebLoadViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B26E56F20842D4A00E0A828 /* IconSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconSet.xcassets; sourceTree = "<group>"; };
 		1B304CCD2061C2F400D8DD4B /* tailtoddle_lo4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tailtoddle_lo4.mp3; sourceTree = "<group>"; };
 		1B304CCF2062966000D8DD4B /* PurpleRain.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PurpleRain.m4a; sourceTree = "<group>"; };
 		1B304CD12063240200D8DD4B /* WebLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoadViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				4031F28E207E8EA7000F7A0E /* Validator.swift */,
 				4031F290207FB35D000F7A0E /* TextFieldView.xib */,
 				4031F292207FB64E000F7A0E /* TextFieldView.swift */,
+				1B26E56F20842D4A00E0A828 /* IconSet.xcassets */,
 			);
 			path = formValidation;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				1B304CD0206296B600D8DD4B /* PurpleRain.m4a in Resources */,
 				40DCDF4F205C545A0039520A /* test.storyboard in Resources */,
 				4031F29A208293B5000F7A0E /* progress.storyboard in Resources */,
+				1B26E57020842D4A00E0A828 /* IconSet.xcassets in Resources */,
 				40D00290206EF0B500231EA4 /* page.storyboard in Resources */,
 				405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */,
 				400B84B82056A2F900F56829 /* LaunchScreen.storyboard in Resources */,
