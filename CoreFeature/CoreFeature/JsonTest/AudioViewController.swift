@@ -15,44 +15,68 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, UITableVie
     @IBAction func recordPressed(_ sender: Any) {
         if audioRecorder == nil{
             
-            noOfRecords += 1
-            let fileName =   getDirectory().appendingPathComponent("Recording\(noOfRecords).m4a")
-            print(fileName)
-            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+//            noOfRecords += 1
+//            let fileName =   getDirectory().appendingPathComponent("Recording\(noOfRecords).m4a")
+//            print(fileName)
+//            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+//
+//            do{
+//                //record the audio
+//                audioRecorder = try AVAudioRecorder(url: fileName, settings: [:])
+//                audioRecorder.record()
+//                audioRecorder.delegate = self
+//                recordButton.setTitle("Stop Recording", for: .normal)
+//
+//            }catch let error{
+//                debugPrint(error.localizedDescription)
+//                displayAlert(title: "OOPS", message: "Recording failed")
+//            }
+//        } else {
+//            audioRecorder.stop()
+//            audioRecorder = nil
+//            recordButton.setTitle("Start Recording", for: .normal)
+//            //store the last no for naming
+//            UserDefaults.standard.set(noOfRecords, forKey: "myNumber")
+//            myTableView.reloadData()
+//        }
             
-            do{
-                //record the audio
-                audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
-                audioRecorder.record()
-                audioRecorder.delegate = self
-                recordButton.setTitle("Stop Recording", for: .normal)
-                
-            }catch{
-                displayAlert(title: "OOPS", message: "Recording failed")
-            }
+            
+            let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+            let recordingName = "recordedVoice.m4a"
+            let pathArray = [dirPath, recordingName]
+            let filePath = URL(string: pathArray.joined(separator: "/"))
+            
+            let session = AVAudioSession.sharedInstance()
+            try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+            
+            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+            do {
+                print(filePath)
+                audioRecorder = try AVAudioRecorder(url: filePath!, settings: settings)
+            audioRecorder.isMeteringEnabled = true
+         //   audioRecorder.prepareToRecord()
+            audioRecorder.record()
+            } catch let error {
+                    print(error.localizedDescription)
+                }
         } else {
             audioRecorder.stop()
             audioRecorder = nil
-            recordButton.setTitle("Start Recording", for: .normal)
-            //store the last no for naming
-            UserDefaults.standard.set(noOfRecords, forKey: "myNumber")
-            myTableView.reloadData()
         }
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Ask permission for Mic
-        recordingSession = AVAudioSession.sharedInstance()
-        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
-            if hasPermission { print("Accepted")}
-            
-            //storing numbering logic
-            if let number = UserDefaults.standard.object(forKey: "myNumber") as? Int
-            { self.noOfRecords = number }
-            
-        }
+//        recordingSession = AVAudioSession.sharedInstance()
+//        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
+//            if hasPermission { print("Accepted")}
+//
+//            //storing numbering logic
+//            if let number = UserDefaults.standard.object(forKey: "myNumber") as? Int
+//            { self.noOfRecords = number }
+//
+//        }
     }
     //func to give path(URL) to store the recording
     func getDirectory() -> URL {

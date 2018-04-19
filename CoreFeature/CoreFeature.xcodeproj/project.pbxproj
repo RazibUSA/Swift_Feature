@@ -42,6 +42,8 @@
 		4031F2A020829653000F7A0E /* ProgressMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4031F29F20829653000F7A0E /* ProgressMenuView.xib */; };
 		405937A52060375500221ED9 /* Storyboard_PH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405937A42060375500221ED9 /* Storyboard_PH.storyboard */; };
 		405937A72060384400221ED9 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405937A62060384400221ED9 /* AlbumsViewController.swift */; };
+		406C3CDB2087755F00F9746C /* BigButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3CDA2087755F00F9746C /* BigButtonView.swift */; };
+		406C3CDD208775C700F9746C /* BigButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 406C3CDC208775C700F9746C /* BigButtonView.xib */; };
 		40A892372072BA39002F30BE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A892362072BA39002F30BE /* Menu.swift */; };
 		40A892392073B6B4002F30BE /* sample.csv in Resources */ = {isa = PBXBuildFile; fileRef = 40A892382073B6B4002F30BE /* sample.csv */; };
 		40A8923E2074F584002F30BE /* table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A8923D2074F584002F30BE /* table.storyboard */; };
@@ -123,6 +125,8 @@
 		4031F29F20829653000F7A0E /* ProgressMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressMenuView.xib; sourceTree = "<group>"; };
 		405937A42060375500221ED9 /* Storyboard_PH.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_PH.storyboard; sourceTree = "<group>"; };
 		405937A62060384400221ED9 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		406C3CDA2087755F00F9746C /* BigButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonView.swift; sourceTree = "<group>"; };
+		406C3CDC208775C700F9746C /* BigButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigButtonView.xib; sourceTree = "<group>"; };
 		40A892362072BA39002F30BE /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		40A892382073B6B4002F30BE /* sample.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.csv; sourceTree = "<group>"; };
 		40A8923D2074F584002F30BE /* table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = table.storyboard; sourceTree = "<group>"; };
@@ -283,6 +287,8 @@
 				4031F290207FB35D000F7A0E /* TextFieldView.xib */,
 				4031F292207FB64E000F7A0E /* TextFieldView.swift */,
 				1B26E56F20842D4A00E0A828 /* IconSet.xcassets */,
+				406C3CDA2087755F00F9746C /* BigButtonView.swift */,
+				406C3CDC208775C700F9746C /* BigButtonView.xib */,
 			);
 			path = formValidation;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				1B304CCE2061C2F400D8DD4B /* tailtoddle_lo4.mp3 in Resources */,
 				400B84DF2058065300F56829 /* StoryboardMap.storyboard in Resources */,
 				4017952D206C226900F43A99 /* audio.storyboard in Resources */,
+				406C3CDD208775C700F9746C /* BigButtonView.xib in Resources */,
 				4031F28B207E8CCF000F7A0E /* form.storyboard in Resources */,
 				400B84B02056A2F900F56829 /* Main.storyboard in Resources */,
 				1B9FD6D4205DBA1A00BD0923 /* Storyboard_json.storyboard in Resources */,
@@ -529,6 +536,7 @@
 				40A892402074F5E7002F30BE /* TableViewController.swift in Sources */,
 				1B9FD6D2205DB9EC00BD0923 /* JsonTestViewController.swift in Sources */,
 				40A8924220754EAD002F30BE /* AttributeViewController.swift in Sources */,
+				406C3CDB2087755F00F9746C /* BigButtonView.swift in Sources */,
 				4031F293207FB64E000F7A0E /* TextFieldView.swift in Sources */,
 				4031F28F207E8EA7000F7A0E /* Validator.swift in Sources */,
 				40D3A904207B6AE2002ED328 /* PageUserViewController.swift in Sources */,
