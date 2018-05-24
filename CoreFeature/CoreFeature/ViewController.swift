@@ -26,7 +26,8 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         Feature(title: "Pull to refresh", description: "Search seek... "),
         Feature(title: "Search", description: "Search seek... "),
         Feature(title: "Text Field", description: "Search seek... "),
-        Feature(title: "Progress", description: "Progress Menu View... ")
+        Feature(title: "Progress", description: "Progress Menu View... "),
+        Feature(title: "Picker Test", description: "Picker View... ")
     ]
     
     var isMore:Bool = true
@@ -127,6 +128,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.textLabel?.text = list[indexPath.item].title
         cell?.detailTextLabel?.text = list[indexPath.item].description
         
+        cell?.indentationLevel = indexPath.row
+        cell?.indentationWidth = 5.0
+        
         return cell!
     }
     
@@ -205,10 +209,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let mapVC:ProgressViewController = storyboard.instantiateViewController(withIdentifier: "ProgressViewController_ID") as! ProgressViewController
             let naviController = UINavigationController(rootViewController: mapVC)
             self.present(naviController, animated: true, completion: nil)
+        } else if indexPath.item == 14 {
+            let storyboard = UIStoryboard(name: "picker", bundle: nil)
+            let mapVC:PickerTableViewController = storyboard.instantiateViewController(withIdentifier: "PickerTableViewController_ID") as! PickerTableViewController
+            let naviController = UINavigationController(rootViewController: mapVC)
+            self.present(naviController, animated: true, completion: nil)
         }
         
     }
     
+//    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+//        print((indexPath.row % 9) * 10)
+//        return (indexPath.row % 9) * 10
+//    }
 //
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //       print(indexPath.row)
@@ -227,5 +240,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        print("I'm scrolling!")
 //    }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+//        
+//        cell.CellView.layer.cornerRadius = cell.CellView.frame.height / 2
+//        cell.Label.text = Dwarves[indexPath.row]
+//        cell.CharcterImage.image = UIImage(named: imagess[indexPath.row])
+//        cell.CharcterImage.layer.cornerRadius = cell.CharcterImage.frame.height / 2
+//        
+//        cell.indentationLevel = indexPath.row
+//        cell.indentationWidth = 5.0
+//        
+//        return cell
+//    }
+    
     
 }

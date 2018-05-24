@@ -14,6 +14,8 @@
 		1B9FD6D0205DB9CC00BD0923 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FD6CF205DB9CC00BD0923 /* JsonModel.swift */; };
 		1B9FD6D2205DB9EC00BD0923 /* JsonTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FD6D1205DB9EC00BD0923 /* JsonTestViewController.swift */; };
 		1B9FD6D4205DBA1A00BD0923 /* Storyboard_json.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FD6D3205DBA1A00BD0923 /* Storyboard_json.storyboard */; };
+		4003D53C208C4489006B51F6 /* picker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4003D53B208C4489006B51F6 /* picker.storyboard */; };
+		4003D53E208C44B0006B51F6 /* PickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4003D53D208C44B0006B51F6 /* PickerTableViewController.swift */; };
 		400B84AB2056A2F900F56829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84AA2056A2F900F56829 /* AppDelegate.swift */; };
 		400B84AD2056A2F900F56829 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B84AC2056A2F900F56829 /* ViewController.swift */; };
 		400B84B02056A2F900F56829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400B84AE2056A2F900F56829 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		1B9FD6CF205DB9CC00BD0923 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		1B9FD6D1205DB9EC00BD0923 /* JsonTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTestViewController.swift; sourceTree = "<group>"; };
 		1B9FD6D3205DBA1A00BD0923 /* Storyboard_json.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard_json.storyboard; sourceTree = "<group>"; };
+		4003D53B208C4489006B51F6 /* picker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = picker.storyboard; sourceTree = "<group>"; };
+		4003D53D208C44B0006B51F6 /* PickerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewController.swift; sourceTree = "<group>"; };
 		400B84A72056A2F900F56829 /* CoreFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreFeature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		400B84AA2056A2F900F56829 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		400B84AC2056A2F900F56829 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,16 @@
 			path = JsonTest;
 			sourceTree = "<group>";
 		};
+		4003D53A208C4471006B51F6 /* PickerTest */ = {
+			isa = PBXGroup;
+			children = (
+				406AC44220A5F1AD0035886E /* assets */,
+				4003D53B208C4489006B51F6 /* picker.storyboard */,
+				4003D53D208C44B0006B51F6 /* PickerTableViewController.swift */,
+			);
+			path = PickerTest;
+			sourceTree = "<group>";
+		};
 		400B849E2056A2F900F56829 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +229,7 @@
 		400B84A92056A2F900F56829 /* CoreFeature */ = {
 			isa = PBXGroup;
 			children = (
+				4003D53A208C4471006B51F6 /* PickerTest */,
 				4031F2982082939D000F7A0E /* ProgressBarMenu */,
 				40A892382073B6B4002F30BE /* sample.csv */,
 				4031F29420803CA6000F7A0E /* test.html */,
@@ -311,6 +326,13 @@
 				405937A62060384400221ED9 /* AlbumsViewController.swift */,
 			);
 			path = PhotoFrame;
+			sourceTree = "<group>";
+		};
+		406AC44220A5F1AD0035886E /* assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 		40A8923A2074F50C002F30BE /* tableviewCell */ = {
@@ -487,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B304CD0206296B600D8DD4B /* PurpleRain.m4a in Resources */,
+				4003D53C208C4489006B51F6 /* picker.storyboard in Resources */,
 				40DCDF4F205C545A0039520A /* test.storyboard in Resources */,
 				4031F29A208293B5000F7A0E /* progress.storyboard in Resources */,
 				1B26E57020842D4A00E0A828 /* IconSet.xcassets in Resources */,
@@ -533,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D00292206EFD5700231EA4 /* SafariPageViewController.swift in Sources */,
+				4003D53E208C44B0006B51F6 /* PickerTableViewController.swift in Sources */,
 				40A892402074F5E7002F30BE /* TableViewController.swift in Sources */,
 				1B9FD6D2205DB9EC00BD0923 /* JsonTestViewController.swift in Sources */,
 				40A8924220754EAD002F30BE /* AttributeViewController.swift in Sources */,

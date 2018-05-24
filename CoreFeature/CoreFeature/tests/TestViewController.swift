@@ -103,6 +103,41 @@ class TestViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         menu.show()
     }
     
+//    func getQuestionNew(){
+//        // this is the main screwed up function
+//        let parameters: Parameters = ["amount": 15, "type":"boolean"]
+//        Alamofire.request("https://opentdb.com/api.php", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+//
+//            //                print("Request: \(String(describing: response.request))")   // original url request
+//            //                print("Response: \(String(describing: response.response))") // http url response
+//            //                print("Result: \(response.result)")
+//
+//
+//
+//            if((response.result.value) != nil) {
+//                let swiftyJsonVar = JSON(response.result.value!)
+//                //print(swiftyJsonVar["results"])
+//                let results = swiftyJsonVar["results"].arrayValue
+//
+//                results.forEach({ (item) in
+//                    //print("Printing Item \(item["question"].stringValue)")
+//                    //                        print("Printing Item ?\(item)")
+//
+//                    self.r = Result(question: item["question"].stringValue, correct_answer: item["correct_answer"].stringValue == "True" ? true : false)
+//
+//                    self.myResults.append(self.r!)
+//                    self.printTest()
+//
+//                    //                        print(self.r)
+//                })
+//
+//                //                    label.text = allQuestions.list[questionNumber].questionText
+//
+//
+//            }
+//        }
+//    }
+    
     let textCountLabel: UILabel = {
         let lb = UILabel()
         lb.text = "0/2000"
